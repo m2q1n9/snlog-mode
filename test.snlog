@@ -1,0 +1,64 @@
+[:00000001] LAUNCH logger 
+[:00000002] LAUNCH snlua bootstrap
+[:00000003] LAUNCH snlua launcher
+[:00000004] LAUNCH snlua cdummy
+[:00000005] LAUNCH harbor 0 4
+[:00000006] LAUNCH snlua datacenterd
+[:00000007] LAUNCH snlua service_mgr
+[:00000008] LAUNCH snlua main
+[:00000009] LAUNCH snlua debug_console 8999
+[:00000009] Start debug console at 127.0.0.1 8999
+[:0000000a] LAUNCH snlua snaxd scene_mgr
+[:0000000b] LAUNCH snlua snaxd agent_mgr
+[:0000000c] LAUNCH snlua snaxd login
+[:0000000d] LAUNCH snlua snaxd login
+[:0000000e] LAUNCH snlua snaxd login
+[:0000000f] LAUNCH snlua snaxd login
+[:00000010] LAUNCH snlua snaxd login
+[:0000000c] INFO  2015-12-05 17:42:28 @moon/service/login.lua:166 127.0.0.1:9000
+[:00000011] LAUNCH snlua snaxd gate
+[:00000011] INFO  2015-12-05 17:42:28 @moon/service/gate.lua:242 127.0.0.1:9001
+[:00000012] LAUNCH snlua snaxd gate
+[:00000012] INFO  2015-12-05 17:42:28 @moon/service/gate.lua:242 127.0.0.1:9002
+[:00000008] INFO  2015-12-05 17:42:28 @moon/service/main.lua:27 moon_config = {
+  console = 8999,
+  debug = true,
+  name = "moon",
+  service = {
+    gates = {
+      {
+        host = "127.0.0.1",
+        name = "moon_1001",
+        port = 9001,
+        user_max = 1000
+      } --[[table: 0x7fd7b2636520]],
+      {
+        host = "127.0.0.1",
+        name = "moon_1002",
+        port = 9002,
+        user_max = 1000
+      } --[[table: 0x7fd7b26365e0]]
+    } --[[table: 0x7fd7b26364e0]],
+    login = {
+      host = "127.0.0.1",
+      instance = 4,
+      port = 9000
+    } --[[table: 0x7fd7b2636420]]
+  } --[[table: 0x7fd7b26363a0]]
+} --[[table: 0x7fd7b2636210]]
+[:00000008] WARN  2015-12-05 17:42:28 @moon/service/main.lua:29 test warn
+[:00000008] ERROR 2015-12-05 17:42:28 @moon/service/main.lua:30 test error
+[:00000008] DEBUG 2015-12-05 17:42:28 @moon/service/main.lua:31 test debug
+[:00000008] init service failed: moon/logic/moon.lua:33: test assert
+stack traceback:
+	[C]: in function 'assert'
+	moon/logic/moon.lua:33: in function 'moon.assert'
+	moon/service/main.lua:33: in local 'start'
+	lua/lualib/skynet.lua:620: in function <lua/lualib/skynet.lua:617>
+	[C]: in function 'xpcall'
+	lua/lualib/skynet.lua:624: in function 'skynet.pcall'
+	lua/lualib/skynet.lua:628: in function 'skynet.init_service'
+	lua/lualib/skynet.lua:641: in upvalue 'f'
+	lua/lualib/skynet.lua:105: in function <lua/lualib/skynet.lua:104>
+[:00000008] KILL self
+[:00000002] KILL self
